@@ -4,7 +4,7 @@ import IntroSection from './components/IntroSection';
 import MainProjects from './components/MainProjects';
 import Navbar from './components/Navbar';
 import OtherProjects from './components/OtherProjects';
-import './flowingAnimation.css';
+
 
 function App() {
 

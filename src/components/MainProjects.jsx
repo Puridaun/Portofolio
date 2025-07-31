@@ -18,8 +18,8 @@ const MainProjects = () => {
 
     return (
         <>
-            <section className="projects-section std-section">
-                <h2 className="projects-title">Projects</h2>
+            <section  className="projects-section std-section">
+                <h2 id="projects-section" className="projects-title">Projects</h2>
                 {projects.map(project => {
                     return (<div className="projects-container">
                         <img className="project-images" src={`/images/${project.name}.png`} />

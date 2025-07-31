@@ -2,18 +2,34 @@ import { useState, useEffect } from "react";
 
 const Navbar = () => {
     const [screenSize, setScreenSize] = useState(window.innerWidth);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     const handleScreenResize = () => {
         setScreenSize(window.innerWidth);
+        // Close menu when screen gets bigger
+        if (window.innerWidth > 540) {
+            setIsMenuOpen(false);
+        }
     };
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    };
+
     useEffect(() => {
         window.addEventListener("resize", handleScreenResize);
         return () => {
             window.removeEventListener("resize", handleScreenResize);
         };
     }, []);
+
     return (
         <>
-            <div className="navbar-container">
+            <div className="z-[300] navbar-container relative">
                 <div className="nav">
                     <div className="nav-container-left">
                         <div className="image-place"></div>
@@ -21,24 +37,57 @@ const Navbar = () => {
                     </div>
 
                     {screenSize > 540 ? (
-
+                        
                         <div className="nav-container-right">
-                            <button>Projects</button>
+                            <button>  <a href="#projects-section">Projects</a></button>
                             <button>About</button>
-                            <button className="button-std">Get in touch</button>
+                            <button className="button-std"><a href="#contact-section">Get in touch</a></button>
                         </div>
                     ) : (
-                        <div className="flex flex-row items-center">
-                            <button>Projects</button>
-                            <button>About</button>
-                            <button className="button-std">Get in touch</button>
-                        </div>
+                 
+                        <button
+                            onClick={toggleMenu}
+                            className="hamburger-btn"
+                            aria-label="Toggle menu"
+                        >
+                          <img src="/images/css.png" className="w-[24px]" />
+                        </button>
                     )}
+
+                   {screenSize <= 540 && (
+                    <div
+                        className={`mobile-menu ${isMenuOpen ? 'mobile-menu-open' : ''}`}
+                    >
+                        <div className="mobile-menu-content">
+                            <button
+                                onClick={closeMenu}
+                                className="mobile-menu-item"
+                            >
+                                <a href="#projects-section">Projects</a>
+                            </button>
+                            <button
+                                onClick={closeMenu}
+                                className="mobile-menu-item"
+                            >
+                                About
+                            </button>
+                            <button
+                                onClick={closeMenu}
+                                className="mobile-menu-item button-std"
+                            >
+                                Get in touch
+                            </button>
+                        </div>
+                    </div>
+                )}
                 </div>
+
+                
             </div>
+
+          
         </>
-    )
-}
+    );
+};
 
-
-export default Navbar
+export default Navbar;
