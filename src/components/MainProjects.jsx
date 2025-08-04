@@ -4,7 +4,7 @@ const MainProjects = () => {
         name: 'Rent cars app',
         description: 'Interactive card details form with real-time validation, formatting and secure input.',
         technologies: ['js', 'css', 'react', 'typescript', 'postgre'],
-        link: 'https://react-app-rent-cars-production.up.railway.app/',
+        link: 'https://rent-cars-app-production.up.railway.app/',
         gitLink: 'https://github.com/Puridaun/Rent-cars-app'
     },
     {
