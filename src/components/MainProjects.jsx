@@ -1,19 +1,23 @@
 
 const MainProjects = () => {
     const projects = [{
-        name: 'Interactive card details form',
+        name: 'Rent cars app',
         description: 'Interactive card details form with real-time validation, formatting and secure input.',
-        technologies: ['js', 'css', 'react']
+        technologies: ['js', 'css', 'react', 'typescript', 'postgre'],
+        link: 'https://react-app-rent-cars-production.up.railway.app/',
+        gitLink: 'https://github.com/Puridaun/Rent-cars-app'
     },
     {
         name: 'Tip calculator',
         description: 'Interactive tip calculator with bill splitting and customizable percentage options.',
-        technologies: ['js', 'css', 'react']
+        technologies: ['js', 'css', 'react'],
+        link: ''
     },
     {
         name: 'FAQ accordion',
         description: 'Interactive FAQ accordion with smooth expand/collapse animations and responsive design.',
-        technologies: ['js', 'css', 'react']
+        technologies: ['js', 'css', 'react'],
+        link: ''
     }]
 
     return (
@@ -30,8 +34,8 @@ const MainProjects = () => {
                                 {project.technologies.map(tech => (<img src={`./images/${tech}.png`} />))}
                             </div>
                             <div className="project-sources">
-                                <a href="">Code</a>
-                                <a href="">Live Demo</a>
+                                <a href={project.gitLink} target='_blank'>Code</a>
+                                <a href={project.link} target='_blank'>Live Demo</a>
                             </div>
                         </div>
                     </div>)

@@ -50,7 +50,7 @@ const Navbar = () => {
                             className="hamburger-btn"
                             aria-label="Toggle menu"
                         >
-                          <img src="/images/css.png" className="w-[24px]" />
+                          <img src="/images/hamburger-menu.png" className="w-[24px]" />
                         </button>
                     )}
 
@@ -69,13 +69,13 @@ const Navbar = () => {
                                 onClick={closeMenu}
                                 className="mobile-menu-item"
                             >
-                                About
+                                <a href="#projects-section">About</a>
                             </button>
                             <button
                                 onClick={closeMenu}
                                 className="mobile-menu-item button-std"
                             >
-                                Get in touch
+                                <a href="#contact-section">Get in touch</a>
                             </button>
                         </div>
                     </div>
