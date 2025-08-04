@@ -434,7 +434,7 @@ Breakpoints:
 
 
 
- /* Mobile menu styles */
+
  .mobile-menu {
    position: absolute;
    top: 100%;
@@ -475,7 +475,7 @@ Breakpoints:
    cursor: pointer;
  }
 
- .mobile-menu-item:hover { 
+ .mobile-menu-item:hover {
    background-color: #f3f4f6 !important;
    opacity: 1 !important;
  }
