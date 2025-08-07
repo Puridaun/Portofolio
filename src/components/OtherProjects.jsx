@@ -13,7 +13,7 @@ const OtherProjects = () => {
                                 <img className="project-card-image" src="/images/project.svg" />
                                 <div className="project-card-active-image">
                                     <img src="/images/social.svg" />
-                                    <a href={project.gitLink}><img src="/images/link.svg" /></a>
+                                    <a href={project.gitLink} target='_blank'><img src="/images/link.svg" /></a>
                                 </div>
                             </div>
                             <h4>{project.name}</h4>

@@ -11,14 +11,14 @@ const MainProjects = () => {
         name: 'To Do app',
         description: 'Interactive FAQ accordion with smooth expand/collapse animations and responsive design.',
         technologies: ['js', 'css', 'react'],
-        link: '',
+        link: 'https://to-do-app-production-1c74.up.railway.app/',
         gitLink: 'https://github.com/Puridaun/React-apps/tree/main/todo-app'
     },
     {
         name: 'Frontend Quiz app',
         description: 'Interactive tip calculator with bill splitting and customizable percentage options.',
         technologies: ['js', 'css'],
-        link: '',
+        link: 'https://frontend-quizz-app-production.up.railway.app/',
         gitLink: 'https://github.com/Puridaun/Java-script/tree/main/Frontend%20Quiz%20app'
     },
     ]
