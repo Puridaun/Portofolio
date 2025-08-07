@@ -8,17 +8,20 @@ const MainProjects = () => {
         gitLink: 'https://github.com/Puridaun/Rent-cars-app'
     },
     {
-        name: 'Tip calculator',
-        description: 'Interactive tip calculator with bill splitting and customizable percentage options.',
-        technologies: ['js', 'css', 'react'],
-        link: ''
-    },
-    {
-        name: 'FAQ accordion',
+        name: 'To Do app',
         description: 'Interactive FAQ accordion with smooth expand/collapse animations and responsive design.',
         technologies: ['js', 'css', 'react'],
-        link: ''
-    }]
+        link: '',
+        gitLink: 'https://github.com/Puridaun/React-apps/tree/main/todo-app'
+    },
+    {
+        name: 'Frontend Quiz app',
+        description: 'Interactive tip calculator with bill splitting and customizable percentage options.',
+        technologies: ['js', 'css'],
+        link: '',
+        gitLink: 'https://github.com/Puridaun/Java-script/tree/main/Frontend%20Quiz%20app'
+    },
+    ]
 
     return (
         <>

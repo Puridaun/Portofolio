@@ -1,27 +1,35 @@
 import { useState } from "react";
 
 const ContactSection = () => {
+    const [isMessageSent, setIsMessageSent] = useState('');
 
-    const [isMessageSent, setIsMessageSent] = useState(false)
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
 
-   const onSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
+        try {
+            const response = await fetch("https://formspree.io/f/mdkdpazv", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
 
-    formData.append("access_key", "d07041ae-f0f3-4840-a1f7-f5965f097ced");
+            if (response.ok) {
+                console.log("Success");
+                setIsMessageSent('success');
+                event.target.reset();
+            } else {
+                console.log("Error");
+                setIsMessageSent('error');
+            }
+        } catch (error) {
+            console.error("Network error:", error);
+            setIsMessageSent('error');
+        }
+    };
 
-    const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData 
-    }).then((res) => res.json());
-
-    if (res.success) {
-        console.log("Success", res);
-        setIsMessageSent(true)
-    } else {
-        console.log("Error", res);
-    }
-};
     return (
         <>
             <div id="contact-section" className="footer-container">
@@ -30,28 +38,31 @@ const ContactSection = () => {
                     <div className="contacts-container">
                         <form onSubmit={onSubmit} className="contact-form">
                             <div className="viewer-name form-inputs">
-                                <label >FULL NAME *</label>
-                                <input type="text" name="name" placeholder="Hrițcu Serafim"></input>
+                                <label>FULL NAME *</label>
+                                <input type="text" name="name" placeholder="John Sample" required />
                             </div>
                             <div className="viewer-email form-inputs">
-                                <label >EMAIL ADDRESS *</label>
-                                <input type="email" name="email" placeholder="example@domaine.com"></input>
+                                <label>EMAIL ADDRESS *</label>
+                                <input type="email" name="email" placeholder="example@domain.com" required />
                             </div>
                             <div className="viewer-message form-inputs">
-                                <label >MESSAGE *</label>
-                                <textarea name="message" placeholder="To write"></textarea>
+                                <label>MESSAGE *</label>
+                                <textarea name="message" placeholder="To write" required />
                             </div>
                             <button type="submit">SEND MESSAGE</button>
                         </form>
                         <div className="owner-informations">
                             <h2>Hrițcu Serafim</h2>
-                            <p>Engineear</p>
+                            <p>Engineer</p>
                             <p>E-MAIL: hritcuserafim01@gmail.com</p>
-                            {isMessageSent?(
+                            {isMessageSent === 'success' && (
                                 <div>
-                                    <p>Message was sent succesfuly. Thank you!</p>
+                                    <p>Message was sent successfully. Thank you!</p>
                                 </div>
-                            ):(<p>Something went wrong. We are sorry and we'll try to fix it</p>)}
+                            )}
+                            {isMessageSent === 'error' && (
+                                <p>Something went wrong. We are sorry and we'll try to fix it</p>
+                            )}
                         </div>
                     </div>
                 </section>
