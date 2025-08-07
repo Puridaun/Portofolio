@@ -1,27 +1,27 @@
+import { useState } from "react";
+
 const ContactSection = () => {
 
-    const onSubmit = async (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
+    const [isMessageSent, setIsMessageSent] = useState(false)
 
-        formData.append("access_key", "d07041ae-f0f3-4840-a1f7-f5965f097ced");
+   const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
 
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
+    formData.append("access_key", "d07041ae-f0f3-4840-a1f7-f5965f097ced");
 
-        const res = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            body: json
-        }).then((res) => res.json());
+    const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData 
+    }).then((res) => res.json());
 
-        if (res.success) {
-            console.log("Success", res);
-        }
-    };
+    if (res.success) {
+        console.log("Success", res);
+        setIsMessageSent(true)
+    } else {
+        console.log("Error", res);
+    }
+};
     return (
         <>
             <div id="contact-section" className="footer-container">
@@ -47,6 +47,11 @@ const ContactSection = () => {
                             <h2>Hrițcu Serafim</h2>
                             <p>Engineear</p>
                             <p>E-MAIL: hritcuserafim01@gmail.com</p>
+                            {isMessageSent?(
+                                <div>
+                                    <p>Message was sent succesfuly. Thank you!</p>
+                                </div>
+                            ):(<p>Something went wrong. We are sorry and we'll try to fix it</p>)}
                         </div>
                     </div>
                 </section>
