@@ -12,12 +12,13 @@ const MainProjects = () => {
                         <div className="project-description">
                             <h3>{project.name}</h3>
                             <p>{project.description}</p>
+                            <p className="built-with">Built With</p>
                             <div className="project-web-technologies">
                                 {project.technologies.map(tech => (<img src={`./images/${tech}.png`} />))}
                             </div>
                             <div className="project-sources">
-                                <a href={project.gitLink} target='_blank'>Code</a>
-                                <a href={project.link} target='_blank'>Live Demo</a>
+                                <button><a href={project.gitLink} target='_blank'>Code</a></button>
+                                <button><a href={project.link} target='_blank'>Live Demo</a></button>
                             </div>
                         </div>
                     </div>)

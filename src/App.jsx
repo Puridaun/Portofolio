@@ -13,7 +13,6 @@ function App() {
     <>
       <Navbar />
       <IntroSection />
-      {/* <FlowingImgBar /> */}
       <MainProjects />
       <OtherProjects />
       <ContactSection />
